@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+.bg-chat-pattern {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.06) 0 2px, transparent 2px),
+    radial-gradient(circle at 80% 10%, rgba(37, 211, 102, 0.05) 0 2px, transparent 2px),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.34));
+  background-size: 56px 56px, 72px 72px, auto;
+}
+
+.dark .bg-chat-pattern {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(129, 140, 248, 0.1) 0 2px, transparent 2px),
+    radial-gradient(circle at 80% 10%, rgba(37, 211, 102, 0.08) 0 2px, transparent 2px),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.98));
+}
+
+.composer-button,
+.message-action {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 1rem;
+  background: rgb(241 245 249);
+  color: rgb(71 85 105);
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.animated-button,
+.composer-button,
+.message-action,
+.profile-action,
+.settings-row {
+  transform: translateZ(0);
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.animated-button:hover,
+.composer-button:hover,
+.message-action:hover,
+.profile-action:hover,
+.settings-row:hover {
+  transform: translateY(-2px);
+}
+
+.animated-button:active,
+.composer-button:active,
+.message-action:active,
+.profile-action:active,
+.settings-row:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.animated-button:focus-visible,
+.composer-button:focus-visible,
+.message-action:focus-visible,
+.profile-action:focus-visible,
+.settings-row:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.35);
+  outline-offset: 3px;
+}
+
+.animated-button:disabled,
+.composer-button:disabled,
+.message-action:disabled,
+.profile-action:disabled,
+.settings-row:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+  transform: none;
+}
+
+.message-action {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.composer-button:hover,
+.message-action:hover {
+  background: rgb(238 242 255);
+  color: rgb(79 70 229);
+  transform: translateY(-1px);
+}
+
+.dark .composer-button,
+.dark .message-action {
+  background: rgb(30 41 59);
+  color: rgb(203 213 225);
+}
+
+.profile-action {
+  display: flex;
+  min-height: 3.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  border-radius: 1rem;
+  background: rgb(255 255 255);
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.profile-action:hover {
+  color: rgb(79 70 229);
+  background: rgb(238 242 255);
+}
+
+.dark .profile-action {
+  background: rgb(15 23 42);
+}
+
+.settings-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 1rem;
+  padding: 0.85rem 0.95rem;
+  text-align: left;
+  transition: background 160ms ease;
+}
+
+.settings-row span {
+  margin-left: auto;
+  color: rgb(100 116 139);
+}
+
+.settings-row:hover {
+  background: rgb(241 245 249);
+}
+
+.dark .settings-row:hover {
+  background: rgb(30 41 59);
+}
+
+.chatio-logo-pulse {
+  animation: logo-pulse 900ms ease-in-out infinite alternate;
+}
+
+.call-ripple {
+  animation: call-ripple 1.2s ease-out infinite;
+}
+
+@keyframes logo-pulse {
+  from { transform: scale(0.96) rotate(-2deg); }
+  to { transform: scale(1.04) rotate(2deg); }
+}
+
+@keyframes call-ripple {
+  0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.45); }
+  70% { box-shadow: 0 0 0 28px rgba(99, 102, 241, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+}
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Global ── */
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  @apply antialiased;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { @apply bg-gray-300 dark:bg-gray-600 rounded-full; }
+
+/* ── Blob animation ── */
+@keyframes blob {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+.animate-blob { animation: blob 7s infinite; }
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-4000 { animation-delay: 4s; }
+
+/* ── Skeleton shimmer ── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+.dark .skeleton {
+  background: linear-gradient(90deg, #2d2d2d 25%, #3d3d3d 50%, #2d2d2d 75%);
+  background-size: 200% 100%;
+}
+
+/* ── Message bubble tail ── */
+.bubble-sent { border-bottom-right-radius: 2px !important; }
+.bubble-received { border-bottom-left-radius: 2px !important; }
+
+/* ── Custom ring ── */
+.ring-violet { box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.35); }

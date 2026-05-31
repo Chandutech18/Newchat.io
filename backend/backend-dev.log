@@ -1,0 +1,18 @@
+
+> backend@1.0.0 dev
+> nodemon src/server.js
+
+[33m[nodemon] 3.1.14[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node src/server.js`[39m
+◇ injected env (8) from .env // tip: ⌘ override existing { override: true }
+Server running in development mode on port 5000
+MongoDB Connected: localhost
+Socket connected: u5FHk-OSGoIeCBqFAAAB
+Socket connected: yLEOaHvAEEnZtpxsAAAD
+Socket connected: -cJHqWfdXSonKdrtAAAF
+Socket connected: N5SoddHCKtNqV8PFAAAH
+Socket connected: M98r67s8zXwn21Y2AAAJ
+Socket connected: i5Kb6jG6iBZChFi2AAAL
